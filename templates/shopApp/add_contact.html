@@ -1,0 +1,69 @@
+{% extends 'shopApp/base.html' %}
+{% block content %}
+
+<style>
+    .sesion {
+        background-color: #ffffff;
+        padding: 20px;
+        padding-top: 40px;
+        border-radius: 10px;
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+        width: 45vh;
+        height: 60vh;
+        margin: 95px 40% 95px;
+        text-align: center;
+    }
+    
+    h2 {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+    
+    .sesion p:nth-child(3),
+    .sesion p:nth-child(4),
+    .sesion p:nth-child(5),
+    .sesion p:nth-child(6),
+    .sesion p:nth-child(7) {
+        text-align: center;
+    }
+    
+    .sesion p:nth-child(3) label,
+    .sesion p:nth-child(4) label,
+    .sesion p:nth-child(5) label,
+    .sesion p:nth-child(6) label {
+        display: block;
+        margin-bottom: 10px;
+    }
+    
+    .sesion p:nth-child(3) input,
+    .sesion p:nth-child(4) input {
+        width: 80%;
+        margin: 0 auto;
+        display: block;
+    }
+    
+    .btn-primary {
+        background-color: #007bff;
+        color: #ffffff;
+        padding: 10px 15px;
+        border-radius: 10px;
+        cursor: pointer;
+        font-size: 15px;
+        margin-top: 10px;
+    }
+    
+    .btn-primary:hover {
+        background-color: #0056b3;
+    }
+</style>
+
+<form class="sesion" method="post">
+    <h2> Agregar contacto </h2>
+
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button class="btn btn-primary" type="submit">Agregar</button>
+</form>
+<a href="{% url 'about' %}">Volver</a>
+
+{% endblock %}
